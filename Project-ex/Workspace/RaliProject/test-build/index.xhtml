@@ -1,0 +1,67 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Accueil</title>
+		<link rel="stylesheet" type="test/css" href="/stylesheet/indexcss.css" />
+	</head>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<ui:define name="body">
+    <a:loadStyle src="/stylesheet/indexcss.css" />
+    <div><p></p></div>
+    <div>
+		<table align="center" width="30%">
+			<tr>
+				<td>
+					<rich:panel  styleClass="indexFormulaireExterneConnexion">											                
+						<rich:panel styleClass="indexFormulaireConnexion">
+							<f:facet name="header">
+								<h:outputText value="Connexion"></h:outputText>
+							</f:facet>
+							<table align="center">
+								<tr>
+									<td align="center">
+										<h:form id="formAuth">
+											<table>
+												<tr>
+													<td>
+														<h:outputText value="Login" />
+													</td>
+													<td>
+														<h:inputText id="login" required="true" value="rh1@phythea.com"/>
+													</td>
+												</tr>
+												<tr>
+													<td><h:outputText  value="Mot de passe" /></td>
+													<td><h:inputSecret id="password" required="true" value="rh1pwd"/></td>
+													<td><h:outputText  value="rh1pwd" /></td>
+												</tr>
+											</table>
+											<br/>
+											<div align="center">
+												<h:commandButton value="Connexion" action="#{IndexBean.authentification}"></h:commandButton><br/><br/>
+												<h:commandLink value="Paramètres de connexion" action="gererConnexion"></h:commandLink>
+												<h:messages/>
+											</div>
+										</h:form >
+									</td>
+								</tr>
+							</table>
+						</rich:panel>
+					</rich:panel>
+				</td>
+			</tr>
+		</table>    
+    </div>
+</ui:define>
+</ui:composition>
+</html>

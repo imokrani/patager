@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+
+<suite name="AdminInterface Tests" verbose="2" parallel="false">
+   <test name="AdminInterface Test">
+     <classes>
+       <class name="com.glaizer.RaliProject.test.AdminInterfaceTest"/>       
+     </classes>
+   </test>	
+</suite>

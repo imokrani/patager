@@ -1,0 +1,116 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<ui:component name="body">
+    <rich:panel>
+    	<h:form id="MyReportingForm">
+    		<rich:panel>
+		        <f:facet name="header">
+		        	<h:outputText value="Identification du RA"></h:outputText>
+		        </f:facet>        
+					<h:selectOneListbox id="listAnnees" size="1" immediate="true">
+						<f:selectItems id="valAnnees" value="#{MyReportingBean.getYears()}"/>
+					</h:selectOneListbox>
+					<h:selectOneListbox id="listSemaines" size="1" immediate="true">
+						<f:selectItems id="valSemaines" value="#{MyReportingBean.getWeeks()}"/>
+					</h:selectOneListbox>
+					<h:outputText value="	(Nous sommes en semaine S"></h:outputText>
+					<h:outputText value="#{AllReportingsBean.getWeek()}"></h:outputText>
+					<h:outputText value=" de l'année "></h:outputText>
+					<h:outputText value="#{AllReportingsBean.getYear()}"></h:outputText>
+					<h:outputText value=")"></h:outputText>
+			</rich:panel>		        
+	    	<rich:panel>
+		        <f:facet name="header">
+		        	<h:outputText value="Précision d'une mission"></h:outputText>
+		        </f:facet>
+		        <table width = "100%" border="0">
+		        	<tr>
+		        		<td align="right" valign="top">
+							<rich:tree value="#{admin.getElementNode()}" var="station1" nodeSelectListener="#{admin.processSelectionTree}" switchType="ajax" ajaxSubmitSelection="true">
+							<rich:treeNode>
+								<h:outputText value="#{station1}" />
+							</rich:treeNode>
+							</rich:tree>
+						</td>
+		        		<td align="right" valign="top">
+							<h:selectOneListbox id="listTaches" size="1" immediate="true">
+								<f:selectItems id="valTaches" value="#{MyReportingBean.getTaches()}"/>
+							</h:selectOneListbox>											    				        		
+ 		        		</td>
+ 		        		<td align="right" valign="top">
+							<h:outputText value="Description : "></h:outputText>
+						</td>
+						<td align="left" valign="top"> 		        		
+							<h:inputTextarea id="txtAreaCommentaire">
+								<f:validateLength minimum="1" maximum="255"/>
+							</h:inputTextarea> 		        		
+ 		        		</td>						
+					</tr>
+				</table>
+			</rich:panel>
+	    	<rich:panel>
+		        <f:facet name="header">
+		        	<h:outputText value="Coût de la mission"></h:outputText>
+		        </f:facet>
+				<h:selectOneListbox id="listJours" size="1" immediate="true">
+					<f:selectItems id="valJours" value="#{MyReportingBean.getJours()}"/>
+				</h:selectOneListbox>
+				<h:selectOneListbox id="listHours" size="1" immediate="true">
+					<f:selectItems id="valHours" value="#{MyReportingBean.getHours()}"/>
+				</h:selectOneListbox>
+				<h:selectOneListbox id="listMinutes" size="1" immediate="true">
+					<f:selectItems id="valMinutes" value="#{MyReportingBean.getMinutes()}"/>
+				</h:selectOneListbox>
+				<h:commandButton value="Valider" action="#{MyReportingBean.setContenuRA}"></h:commandButton>								
+			</rich:panel>	        
+	    	<rich:panel>
+		        <f:facet name="header">
+		        	<h:outputText value="Contenu du RA"></h:outputText>
+		        </f:facet>			        		
+					<h:dataTable id="dtContenuRA" border="1" width="100%" value="#{MyReportingBean.getContenuRA()}" var="item">    						  
+						<rich:column>
+							<f:facet name="header">  
+								<h:outputText id="txtJours" value="Jours" /> 
+							</f:facet>
+							<h:outputText value="#{item.nomjour}" /> 
+						</rich:column> 								  
+						<rich:column> 
+							<f:facet name="header">  
+								<h:outputText id="txtProjets" value="Projets" />  
+							</f:facet>
+							<h:outputText value="#{item.lblprojet}" />  
+						</rich:column>    							  
+						<rich:column>  
+							<f:facet name="header">  
+								<h:outputText id="txtTaches" value="Tâches" />  
+							</f:facet>
+							<h:outputText value="#{item.lblphaseP}" />  
+						</rich:column>    							  
+						<rich:column>  
+							<f:facet name="header">  
+								<h:outputText id="txtNbrHeures" value="Nombre d'heures" />  
+							</f:facet>
+							<h:outputText value="#{item.nbrheure}" />
+						</rich:column>								
+						<rich:column>  
+							<f:facet name="header">  
+								<h:outputText id="txtCommentaire" value="Commentaires" />  
+							</f:facet>
+							<h:outputText value="#{item.commentaire}" />  
+						</rich:column>								
+					</h:dataTable>											
+			</rich:panel>	        			                        
+        </h:form>
+    </rich:panel>
+</ui:component>
+</ui:composition>

@@ -1,0 +1,86 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:component name="body">
+
+    <rich:panel>
+        <f:facet name="header">
+        	<h:outputText value="Choix du rapport d'activité"></h:outputText>
+        </f:facet>
+        <h:form id="AllReportingsForm">
+        <table width="100%">
+	        <tr>
+				<td>
+					<h:selectOneListbox id="listAnnees" size="1" immediate="true" onchange="submit()" valueChangeListener="#{AllReportingsBean.getContenuRA}">
+						<f:selectItems id="valAnnees" value="#{AllReportingsBean.getYears()}"/>
+					</h:selectOneListbox>
+					<h:selectOneListbox id="listSemaines" size="1" immediate="true" onchange="submit()" valueChangeListener="#{AllReportingsBean.getContenuRA}">
+						<f:selectItems id="valSemaines" value="#{AllReportingsBean.getWeeks()}"/>
+					</h:selectOneListbox>
+					<h:selectOneListbox id="listRessources" size="1" immediate="true" onchange="submit()" valueChangeListener="#{AllReportingsBean.getContenuRA}">
+						<f:selectItems id="valRessources" value="#{AllReportingsBean.getResources()}"/>
+					</h:selectOneListbox>
+					<h:outputText value="	(Nous sommes en semaine S"></h:outputText>
+					<h:outputText value="#{AllReportingsBean.getWeek()}"></h:outputText>
+					<h:outputText value=" de l'année "></h:outputText>
+					<h:outputText value="#{AllReportingsBean.getYear()}"></h:outputText>
+					<h:outputText value=")"></h:outputText>
+				</td>	        					        
+				<td align = "right">
+					<h:commandButton value="Imprimer" onclick="window.print(); return false;"/>				
+				</td>
+	        </tr>
+        </table>						
+        </h:form>
+    </rich:panel>
+
+	<rich:panel>
+		<f:facet name="header">
+			<h:outputText value="Contenu du rapport d'activité"></h:outputText>
+		</f:facet>
+		<h:form id="RapportsActivitesForm">
+			<h:dataTable id="dtRA" border="1" width="100%" var="Contenu">    						  
+				<rich:column>
+					<f:facet name="header">  
+						<h:outputText id="txtJours" value="Jours" /> 
+					</f:facet>
+					<h:outputText value="#{Contenu.jourssemaine.nomjour}" />  
+				</rich:column> 								  
+				<rich:column> 
+					<f:facet name="header">  
+						<h:outputText id="txtProjets" value="Projets" />  
+					</f:facet>
+					<h:outputText value="#{Contenu.phaseplanification.projet.lblprojet}" />  
+				</rich:column>    							  
+				<rich:column>  
+					<f:facet name="header">  
+						<h:outputText id="txtTaches" value="Tâches" />  
+					</f:facet>
+					<h:outputText value="#{Contenu.phaseplanification.lblphaseP}" />  
+				</rich:column>    							  
+				<rich:column>  
+					<f:facet name="header">  
+						<h:outputText id="txtNbrHeures" value="Nombre d'heures" />  
+					</f:facet>
+					<h:outputText value="#{Contenu.nbrheure}" />
+				</rich:column>								
+				<rich:column>  
+					<f:facet name="header">  
+						<h:outputText id="txtCommentaire" value="Commentaires" />  
+					</f:facet>
+					<h:outputText value="#{Contenu.commentaire}" />  
+				</rich:column>								
+			</h:dataTable>
+		</h:form>						
+	</rich:panel>
+    
+</ui:component>
+</ui:composition>

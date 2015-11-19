@@ -1,0 +1,4 @@
+#Fri Aug 20 10:24:02 CEST 2010
+module-start-timeout=300000
+runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<runtimes>\n  <runtime id\="JBoss v5.0" location\="/Users/rali/Project/Software/jboss-5.0.1.GA/bin" name\="JBoss v5.0" runtime-type-id\="org.eclipse.jst.server.generic.runtime.jboss5" server_definition_id\="org.eclipse.jst.server.generic.runtime.jboss5" timestamp\="0">\n    <map key\="generic_server_instance_properties" serverRootDirectory\="/Users/rali/Project/Software/jboss-5.0.1.GA"/>\n  </runtime>\n</runtimes>\n
+eclipse.preferences.version=1

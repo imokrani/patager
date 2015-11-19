@@ -1,0 +1,55 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+<ui:define name="body">
+    <div><p></p></div>
+    <div>
+		<table align="center" width="50%">
+			<tr>
+				<td>
+					<rich:panel  styleClass="indexFormulaireExterneConnexion">
+						<rich:panel styleClass="indexFormulaireConnexion">
+							<f:facet name="header">
+								<h:outputText value="Seconde Authentification"></h:outputText>
+							</f:facet>
+				        	<h:form id="secondeAuthentificationForm">
+						        <table align="center">
+							        <tr>
+							        	<td>
+							        		<h:outputText value="Profil de connexion" />
+							        	</td>
+							        	<td>
+								        	<h:selectOneListbox id="listProfils" size="1" immediate="true" onchange="submit()" valueChangeListener="#{SecondeAuthentificationBean.setListDossiers}">
+												<f:selectItems id="titresProfils" value="#{IndexBean.getProfils()}"/>
+											</h:selectOneListbox>
+							        	</td>
+							        </tr>
+							        <tr>
+							        	<td>
+							        		<h:outputText value="Dossier client" />
+							        	</td>
+							        	<td>
+											<h:selectOneListbox id="listDossiers" size="1" immediate="true"></h:selectOneListbox>
+							        	</td>
+							        </tr>
+							    </table>
+								<br/>
+								<div align="center">
+									<h:commandButton value="Connexion" action="#{SecondeAuthentificationBean.secondeAuthentification}"></h:commandButton>
+								</div>							    							    
+				        	</h:form>	        																										
+				    	</rich:panel>
+				    </rich:panel>
+				</td>
+			</tr>
+		</table>
+	</div>
+</ui:define>
+</ui:composition>

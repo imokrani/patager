@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://java.sun.com/xml/ns/javaee" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd"
+             version="5">
+    
+   <display-name>RaliProject</display-name>
+   
+   <module>
+      <web>
+         <web-uri>RaliProject.war</web-uri>
+         <context-root>/RaliProject</context-root>
+      </web>
+   </module>
+   
+   <module>
+      <ejb>RaliProject.jar</ejb>
+   </module>
+   
+   <!-- Seam and EL -->
+   <module>
+       <ejb>jboss-seam.jar</ejb>
+   </module>
+   
+   <module>
+       <ejb>commons-logging-1.1.jar</ejb>
+   </module>                     
+
+   <module>
+       <ejb>junit-3.8.1.jar</ejb>
+   </module>           
+
+   <module>
+       <ejb>log4j-1.2.13.jar</ejb>
+   </module>           
+
+   <module>
+       <ejb>poi-3.6-20091214.jar</ejb>
+   </module>           
+
+   <module>
+       <ejb>poi-contrib-3.6-20091214.jar</ejb>
+   </module>           
+
+   <module>
+       <ejb>poi-examples-3.6-20091214.jar</ejb>
+   </module>           
+
+   <module>
+       <ejb>poi-ooxml-3.6-20091214.jar</ejb>
+   </module>           
+
+   <module>
+       <ejb>poi-ooxml-schemas-3.6-20091214.jar</ejb>
+   </module>           
+
+   <module>
+       <ejb>poi-scratchpad-3.6-20091214.jar</ejb>
+   </module>           
+    
+   <module>
+       <ejb>xmlbeans-2.3.0.jar</ejb>
+   </module>     
+
+   <module>
+       <ejb>commons-lang-2.4-javadoc.jar</ejb>
+   </module>     
+
+   <module>
+       <ejb>commons-lang-2.4-sources.jar</ejb>
+   </module>     
+
+   <module>
+       <ejb>commons-lang-2.4.jar</ejb>
+   </module>     
+
+</application>

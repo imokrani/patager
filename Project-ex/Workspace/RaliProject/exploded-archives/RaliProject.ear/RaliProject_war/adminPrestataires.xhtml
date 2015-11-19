@@ -1,0 +1,134 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+<a:loadStyle src="/stylesheet/indexcss.css" />
+<!--		     L'ENTETE DE LA PAGE DE CONNEXION-->
+<!--LE CONTENU DE LA PAGE ACCUEIL ADMINISTRATEUR-->
+		<!--Espace Administrateur-->
+		
+	<rich:tabPanel>
+		<!--Menu  ADMINISTRATEUR-->
+		<rich:tab label="Administrateurs">
+			<!--Les sous menu de l'administrateur: Ressource, Simulation CIR, ICAC-->
+			<rich:tabPanel>
+				<!--GESTION DES RESSOURCES-->
+				<rich:tab label="Ressources">
+					<!--ORGANISATION TYPE DE RESSOURCE DIPLOME TYP"/Users/rali/workspace/RaliProject1/AdminBeanIDIR.java"E PRESTATAIRES -->
+					<table>
+						<tr>
+							<td width="100"  align="center"></td>
+							<td width="500">
+							<!--ESPAGE STRUCTURE DE L'ENTREPRISE-->
+									<!--AFFICHER LA STRUCTURE DE L'ENTREPRISE-->
+					
+											         <h:form>
+															 <rich:tree value="#{admin.getElementNode()}" var="station1" nodeSelectListener="#{admin.processSelectionTree}" switchType="ajax" ajaxSubmitSelection="true">
+																    <rich:treeNode>
+																      			  <h:outputText value="#{station1}" />
+																    </rich:treeNode>
+									            			 </rich:tree>
+							       					  </h:form>
+							          
+							 
+							</td>
+							<td width="150" align="right">
+								<!-- *******************************************************  LA LISTE DES TYPES DE RESSOURCES  -->
+							
+							    				<h:outputText value="Type Ressources"/>
+												<h:form>
+								              		<h:selectOneListbox id="di" size="1" valueChangeListener="#{admin.processValueChangeTypeRessourcePRESTATAIRES}" onchange="submit()"  immediate="true">
+															<f:selectItem id="si2" itemLabel="Prestataires" itemValue="22" />
+															<f:selectItem id="si1" itemLabel="Humaines" itemValue="11" />
+															<f:selectItem id="si3" itemLabel="Materiels" itemValue="33" />
+															<f:selectItem id="si4" itemLabel="Consommables" itemValue="44" />
+													</h:selectOneListbox>
+										     	</h:form>	
+							</td>
+							<td width="150">
+								
+							</td>
+							<td width="150" align="right">
+								
+							<!-- Liste des criteres de recherches	-->
+							
+										  	  <h:form id="test">
+										  	 		 <h:outputText id="montitre" value="Types Prestataires"/>
+										  	  </h:form>
+												
+												<h:form id="CriteresRecherches">
+									              		<h:selectOneListbox id="diplomePrestation"  size="1" valueChangeListener="#{admin.processValueChangeTypePRESTATAIRES}" onchange="submit()"  immediate="true">
+									              			<f:selectItem id="pres00" itemLabel="Type de prestataire" itemValue="Pres11" />
+									              			 <f:selectItems value="#{admin.AgetTypesPrestataires()}"/>
+														</h:selectOneListbox>
+												</h:form>
+							</td>
+							<td width="150">
+							</td>
+						</tr>
+						<tr>
+							<td width="100"></td>
+							<td width="500"></td>
+							<td width="150"></td>
+							<td width="150"></td>
+							<td width="150"></td>
+							<td width="150"></td>
+						</tr>
+					</table>
+						<!--Le resultat  de recherche -->
+						<rich:panel styleClass="ressultatsRechercheRessources">
+							<f:facet name="header">
+								<h:outputText value="  Prestataires  "></h:outputText>
+							</f:facet>
+							<!--  AFFICHER LE LISTE DES RESSOURCE DANS UN DATATABLE      value="#{admin.getListePrestataires()}" -->
+							<h:form id="aaaa">
+							<h:dataTable id="bbbb"  var="Prestataire">
+    							  <rich:column>  
+								        <f:facet name="header">  
+								            <h:outputText  value="Identifiant" />  
+								        </f:facet>  
+       									<h:outputText value="#{Prestataire.idprestataire}" />  
+   								  </rich:column> 
+   								  
+   								  <rich:column>  
+								        <f:facet name="header">  
+								            <h:outputText value="Nom Prestataire" />  
+								        </f:facet>  
+								        <h:outputText value="#{Prestataire.lblprestataire}" />  
+    							  </rich:column>
+							</h:dataTable>
+						</h:form>
+						</rich:panel>
+					<!--LE BOUTON QUI PERMET  L ADMINISTRATEUR DE SIGNALER UN CHANGEMENT AU NIVEAU DES RESULTATS RETOURNES	-->
+					<table>
+						<tr>
+							<td class="dispositionBoutonRechargerRessources"></td>
+							<td><h:commandButton value="Signaler un changement"></h:commandButton></td>
+						</tr>
+					</table>
+				</rich:tab>
+				<!--CALCULER LA SIMUTAION CIR-->
+				<rich:tab label="Simulation CIR">
+				</rich:tab>
+				<!--LES DOCUEMENT ICAC-->
+				<rich:tab label="ICAC">
+				</rich:tab>
+			</rich:tabPanel>
+		</rich:tab>
+		<!--Menu PROJETS-->
+		<rich:tab label="Projets">
+		</rich:tab>
+		<!--Menu RAPPORTS D ACTIVITES-->
+		<rich:tab label="Rapports d'activites">
+		</rich:tab>
+	</rich:tabPanel>
+</ui:define>
+</ui:composition>

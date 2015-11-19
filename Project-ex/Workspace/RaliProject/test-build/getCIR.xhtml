@@ -1,0 +1,185 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>CIR</title>
+		<link rel="stylesheet" type="test/css" href="/stylesheet/indexcss.css" />
+	</head>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<ui:component name="body">
+    <rich:panel>
+        <f:facet name="header">Simulation CIR</f:facet>
+        <h:form id="GetCIRForm">
+        	<h:outputText value="Choisissez la date d'une simulation : "></h:outputText>
+			<h:selectOneListbox id="listDatesCIR" size="1" immediate="true" onchange="submit()" valueChangeListener="#{GetCIRBean.updateValuesCIR()}">
+				<f:selectItems id="lblDatesCIR" value="#{GetCIRBean.getDatesCIR()}"/>
+			</h:selectOneListbox>
+			<h:outputText value="  (aaaa-mm-jj)"></h:outputText>
+			<br/><br/><br/>
+			<table align="center" width="50%">				
+				<tr>
+					<td align="right">
+						<h:outputText value="Dotations aux amortissements" />					
+					</td>
+					<td>
+						<h:inputText id="elt1" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Dépenses de personnels : Chercheurs et Techniciens"/>					
+					</td>
+					<td>
+						<h:inputText id="elt2" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Dépenses de personnels : Jeunes docteurs"/>					
+					</td>
+					<td>
+						<h:inputText id="elt3" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Dépenses de fonctionnement"/>					
+					</td>
+					<td>
+						<h:inputText id="elt4" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Prise Maintenance Brevets"/>					
+					</td>
+					<td>
+						<h:inputText id="elt5" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Dépenses Défense Brevets"/>					
+					</td>
+					<td>
+						<h:inputText id="elt6" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Dotations Amortissments Brevets"/>					
+					</td>
+					<td>
+						<h:inputText id="elt7" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Réunion Normalisation"/>					
+					</td>
+					<td>
+						<h:inputText id="elt8" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Autre Dépenses Normalisation"/>					
+					</td>
+					<td>
+						<h:inputText id="elt9" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Réunion Normalisation Officielle"/>					
+					</td>
+					<td>
+						<h:inputText id="elt10" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Prestations Organismes Publics"/>					
+					</td>
+					<td>
+						<h:inputText id="elt11" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Prestations Organismes Privés Agréés"/>					
+					</td>
+					<td>
+						<h:inputText id="elt12" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Dépenses Veille Technologique"/>					
+					</td>
+					<td>
+						<h:inputText id="elt13" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Textile"/>					
+					</td>
+					<td>
+						<h:inputText id="elt14" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Subventions Publiques et Sous-traitants"/>					
+					</td>
+					<td>
+						<h:inputText id="elt15" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="TOTAL"/>					
+					</td>
+					<td>
+						<h:inputText id="elt16" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Taux CIR"/>					
+					</td>
+					<td>
+						<h:inputText id="elt17" disabled="true" /><h:outputText value="%"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<h:outputText value="Montant CIR"/>					
+					</td>
+					<td>
+						<h:inputText id="elt18" disabled="true" /><h:outputText value="€"/>
+					</td>
+				</tr>
+			</table>
+			<table align="center" width="50%">
+				<tr>
+					<td align="right">
+						<h:commandButton value="Imprimer" onclick="window.print(); return false;"/>
+					</td>
+				</tr>				
+			</table>		
+		</h:form>
+    </rich:panel>
+</ui:component>
+</ui:composition>
+</html>

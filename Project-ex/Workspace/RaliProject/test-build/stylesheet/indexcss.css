@@ -1,0 +1,60 @@
+/*index.jsf************************************************************************************/
+.indexPanelEntete{
+	background-repeat: no-repeat;
+	margin: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-top: 0px;
+	border: 0;
+}
+.indexContenuConnexion{
+	 padding-bottom: 0px;
+	 padding-top: 0px;
+	 margin-left: 300px
+}
+.indexEspaceLogo{
+	width: 1150px;
+	height: 50px;
+	border: 0;
+}
+.indexespaceConnexion{
+	width: 250px;
+	height: 120px; 
+}
+.indexFormulaireExterneConnexion{
+	 text-align:center;
+	  width : 497px;
+}
+.indexFormulaireConnexion{
+	 with:800; 
+	 align= center; 
+	 border:1;
+}
+/*La page de l'administrateur************************************************************************************/
+.informationsConnexion{
+	width: 250px;
+	height: 100px;
+	border: 1; 
+}
+.dispositionBoutonRechargerRessources{
+	width: 1300px; 
+}
+.ressultatsRechercheRessources{
+	text-align:center;
+	border: 1;
+}
+.organisationPanel{
+	border: 1; 
+}
+/*Page changercoordonnes************************************************************************************/
+.colorRedTable{
+       color: red; 
+       text-align: center;
+}
+/*Page getCIR************************************************************************************/
+.verticalTop {
+    vertical-align: top;
+}
+
+	  

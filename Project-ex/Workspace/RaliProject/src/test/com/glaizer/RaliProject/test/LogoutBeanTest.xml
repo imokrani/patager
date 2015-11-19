@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+
+<suite name="LogoutBean Tests" verbose="2" parallel="false">
+   <test name="LogoutBean Test">
+     <classes>
+       <class name="com.glaizer.RaliProject.test.LogoutBeanTest"/>       
+     </classes>
+   </test>	
+</suite>
